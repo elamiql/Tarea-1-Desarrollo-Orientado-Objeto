@@ -2,37 +2,37 @@ package org.example;
 
 import java.util.ArrayList;
 
-class Deposito{
-    private ArrayList<Bebida> var;
-    private ArrayList<Moneda> mon;
+/**
+ * Clase genérica deposito.
+ * @param <T> tipo de objetos en depósito.
+ */
+class Deposito<T> {
+    private ArrayList<T> items;
 
-    public Deposito(){
-        this.var = new ArrayList<>();
-        this.mon = new ArrayList<>();
+    /**
+     * Constructor para depósito vacío.
+     */
+    public Deposito() {
+        this.items = new ArrayList<>();
     }
 
-    public void addBebida(Bebida b){
-        var.add(b);
+    /**
+     * Agrega un elemento al depósito.
+     * @param item a agregar.
+     */
+    public void addItem(T item) {
+        items.add(item);
     }
 
-    public Bebida getBebida() {
-        if (var.size() == 0) {
+    /**
+     * Obtiene un elemento del depósito.
+     * @return El primer elemento del depósito o null si está vacío.
+     */
+    public T getItem() {
+        if (items.isEmpty()) {
             return null;
         } else {
-            return var.remove(0);
-        }
-    }
-
-    public void addMoneda(Moneda m){
-        mon.add(m);
-    }
-
-    public Moneda getMoneda() {
-        if (mon.size() == 0) {
-            return null;
-        } else {
-            return mon.remove(0);
+            return items.remove(0);
         }
     }
 }
-

@@ -1,11 +1,13 @@
 package org.example;
 
-class Sprite extends Bebida{
-    public Sprite(int serie){
-        super(serie);
+public class Sprite extends Bebida{
+    private String marca;
+    public Sprite(int codigo, String nombre, int precio, String marca){
+        super(codigo, nombre, precio, marca);
+        this.marca = marca;
     }
 
-    public String beber(){
-        return "sprite";
+    public String consumirP(){
+        return "Bebiendo " + this.marca;
     }
 }

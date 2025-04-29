@@ -1,68 +1,65 @@
 package org.example;
 
-class Expendedor{
-    private Deposito coca;
-    private Deposito sprite;
-    private Deposito monVu;
-    private int precio;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Expendedor{
+
     public static final int COCA = 1;
     public static final int SPRITE = 2;
+    public static final int FANTA = 3;
+    public static final int SUPER8 = 4;
+    public static final int SNICKERS = 5;
 
-    public Expendedor(int numBebidas, int precioBebidas) {
-        coca = new Deposito();
-        sprite = new Deposito();
-        monVu = new Deposito();
-        precio = precioBebidas;
+    private Deposito<Moneda> monedasVuelto;
+    private List<Deposito<Producto>> productos;
 
-        for (int i = 0; i < numBebidas; i++) {
-            coca.addBebida(new CocaCola(100 + i));
-            sprite.addBebida(new Sprite(200 + i));
+
+
+    public Expendedor(int numProductos) {
+        productos = new ArrayList<>();
+        monedasVuelto = new Deposito<>();
+
+        for (int i=0; i < 5; i++){
+            productos.add(new Deposito<Producto>());
         }
+
+        for (int i = 0; i < numProductos; i++) {
+            productos.get(COCA - 1).addItem(new CocaCola(i, "CocaCola", Precios.COCA_COLA.getPrecio(), "CocaCola"));
+            productos.get(SPRITE - 1).addItem(new Sprite(i, "Sprite", Precios.SPRITE.getPrecio(), "Sprite"));
+            productos.get(FANTA - 1).addItem(new Fanta(i, "Fanta", Precios.FANTA.getPrecio(), "Fanta"));
+            productos.get(SUPER8 - 1).addItem(new Super8(i,"Super8",Precios.SUPER8.getPrecio(),"Chocolate"));
+            productos.get(SNICKERS - 1).addItem(new Snickers(i,"Snickers",Precios.SNICKERS.getPrecio(),"Snicker"));
+        }
+
+
     }
 
-    public Bebida comprarBebida(Moneda m, int cual) {
+    public Producto comprarProducto(Moneda m, int cual) {
         if (m == null){
             return null;
         }
 
-        if (cual !=1 && cual !=2){
-            monVu.addMoneda(m);
+        if (cual < COCA || cual > SNICKERS){
             return null;
         }
 
-        if (m.getValor() >= precio){
-            Bebida b = null;
+        int precioProductos = Precios.values()[cual-1].getPrecio();
 
-            if (cual == COCA){
-                b = coca.getBebida();
-                if (b == null){
-                    monVu.addMoneda(m);
-                    return null;
-                }
-            }
-            else if(cual == SPRITE){
-                b = sprite.getBebida();
-                if (b == null){
-                    monVu.addMoneda(m);
-                    return null;
-                }
-            }
+        Deposito<Producto> depositoProducto = productos.get(cual-1);
 
-            int cambio = m.getValor() - precio;
-            if (cambio >= 100){
-                for (int i=0; i<cambio; i+=100){
-                    monVu.addMoneda(new Moneda100());
-                }
-            }
-            return b;
+        int valMoneda = m.getValor();
+        int cambio = valMoneda - precioProductos;
+
+        while (cambio >= 100){
+            monedasVuelto.addItem(new Moneda100());
+            cambio = cambio - 100;
         }
-        else{
-            monVu.addMoneda(m);
-            return null;
-        }
+
+        return depositoProducto.getItem();
     }
 
     public Moneda getVuelto(){
-        return monVu.getMoneda();
+        return monedasVuelto.getItem();
     }
 }

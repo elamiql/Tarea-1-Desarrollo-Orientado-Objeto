@@ -1,12 +1,47 @@
 package org.example;
 
-abstract class Moneda{
-    public Moneda(){}
+/**
+ * Clase abstracta moneda.
+ * Implementa la interfaz Comparable.
+ */
+abstract class Moneda implements Comparable<Moneda> {
 
-    public Moneda getSerie(){
-        return this;
+    /**
+     * Constructor de Moneda.
+     * Inicializa moneda.
+     */
+    public Moneda() {}
+
+    /**
+     * Método abstracto valor.
+     * Cada clase hija debe implementar este método.
+     * @return el valor de la moneda.
+     */
+    public abstract int getValor();
+
+    /**
+     * Sobrescribe el método toString.
+     * Muestra numero de serie y valor .
+     *
+     * @return caracteristicas de moneda.
+     */
+    @Override
+    public String toString() {
+        return "Número de serie: " + this.hashCode() + ", valor: " + getValor();
     }
 
-    public abstract int getValor();
+    /**
+     * Compara monedas.
+     * La comparación se realiza por el valor de la moneda.
+     *
+     * @param otraMoneda la moneda con la que se compara
+     * @return un valor negativo si esta moneda es menor,
+     *         un valor positivo si esta moneda es mayor,
+     *         o cero si ambas monedas tienen el mismo valor.
+     */
+    @Override
+    public int compareTo(Moneda otraMoneda) {
+        return Integer.compare(this.getValor(), otraMoneda.getValor());
+    }
 }
 

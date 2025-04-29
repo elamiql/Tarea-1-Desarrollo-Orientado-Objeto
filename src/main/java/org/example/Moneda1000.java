@@ -1,12 +1,27 @@
 package org.example;
 
-class Moneda1000 extends Moneda{
-    public Moneda1000(){
+/**
+ * Clase moneda1000.
+ * Extiende la clase abstracta Moneda.
+ */
+class Moneda1000 extends Moneda {
+
+    /**
+     * Constructor Moneda1000.
+     * Inicializa una nueva instancia de Moneda1000.
+     */
+    public Moneda1000() {
         super();
     }
 
-    public int getValor(){
+    /**
+     * Obtiene el valor de la moneda.
+     *
+     * @return el valor de la moneda (1000)
+     */
+    public int getValor() {
         return 1000;
     }
 }
+
 
