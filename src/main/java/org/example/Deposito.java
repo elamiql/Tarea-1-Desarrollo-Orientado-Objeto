@@ -35,4 +35,8 @@ class Deposito<T> {
             return items.remove(0);
         }
     }
+
+    public boolean isEmpty(){
+        return items.isEmpty();
+    }
 }

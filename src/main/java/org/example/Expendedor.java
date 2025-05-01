@@ -35,20 +35,29 @@ public class Expendedor{
 
     }
 
-    public Producto comprarProducto(Moneda m, int cual) {
+    public Producto comprarProducto(Moneda m, int cual) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException{
+
         if (m == null){
-            return null;
+            throw new PagoIncorrectoException("No tienes moneda (Moneda nula)");
         }
 
         if (cual < COCA || cual > SNICKERS){
-            return null;
+            throw new NoHayProductoException("No hay producto o número de producto incorrecto");
         }
 
         int precioProductos = Precios.values()[cual-1].getPrecio();
 
         Deposito<Producto> depositoProducto = productos.get(cual-1);
 
+        if (depositoProducto.isEmpty()){
+            throw new NoHayProductoException("No hay producto en el depósito");
+        }
+
         int valMoneda = m.getValor();
+
+        if (valMoneda < precioProductos){
+            throw new PagoInsuficienteException("Valor de moneda insuficiente");
+        }
         int cambio = valMoneda - precioProductos;
 
         while (cambio >= 100){
