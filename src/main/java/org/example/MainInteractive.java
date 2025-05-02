@@ -6,8 +6,22 @@ public class MainInteractive {
     public static void main(String[] args) {
         boolean salir = true;
         Scanner scanner = new Scanner(System.in);
-        int cant = scanner.nextInt();
-        Expendedor expendedor = new Expendedor(cant);
+        System.out.println("Bienvenido al Expendedor Interactivo!");
+        System.out.println("¿Desea comprar un producto?");
+        System.out.println("1. Sí");
+        System.out.println("2. No");
+
+        int respuesta = scanner.nextInt();
+
+
+        if (respuesta != 1) {
+            System.out.println("Hasta luego :)");
+            scanner.close();
+            return;
+        }
+
+        Expendedor expendedor = new Expendedor(5);  // Inicializa con 5 productos de cada tipo
+
         Moneda m = null;
         Comprador comprador;
         String[] nombresProductos = {"CocaCola", "Sprite", "Fanta", "Super8", "Snickers"};
@@ -32,11 +46,11 @@ public class MainInteractive {
 
             }
             System.out.println("elija un producto");
-            System.out.println("1. Coca");
-            System.out.println("2. Sprite");
-            System.out.println("3. Fanta");
-            System.out.println("4. super8");
-            System.out.println("5. snickers");
+            System.out.println("0. Coca");
+            System.out.println("1. Sprite");
+            System.out.println("2. Fanta");
+            System.out.println("3. super8");
+            System.out.println("4. snickers");
             eleccion = scanner.nextInt();
             switch (eleccion){
                 case 1:
@@ -82,6 +96,7 @@ public class MainInteractive {
                     break;
                 case 5:
                     try {
+
                         comprador = new Comprador(m, 5, expendedor);
                         System.out.println("Comprador compró: " + nombresProductos[5]);
                         System.out.println(comprador.queBebiste());
@@ -94,9 +109,9 @@ public class MainInteractive {
                     System.out.println("error en la eleccion");
             }
             
-            System.out.println("salir?");
-            System.out.println("1. no salir");
-            System.out.println("2. salir");
+            System.out.println("¿Quieres seguir comprando?");
+            System.out.println("1. Si");
+            System.out.println("2. No");
             eleccion = scanner.nextInt();
             switch (eleccion){
                 case 1:
@@ -105,7 +120,8 @@ public class MainInteractive {
                     salir=false;
                     break;
             }
-            scanner.close();
         }
+        System.out.println("Hasta luego");
+        scanner.close();
     }
 }
