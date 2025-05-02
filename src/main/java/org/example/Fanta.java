@@ -5,12 +5,6 @@ package org.example;
  * Extiende la clase abstracta Bebida.
  */
 public class Fanta extends Bebida {
-
-    /**
-     * Marca de la bebida.
-     */
-    private String marca;
-
     /**
      * Constructor de la clase Fanta.
      * @param codigo ,CÃ³digo del producto.
@@ -20,7 +14,6 @@ public class Fanta extends Bebida {
      */
     public Fanta(int codigo, String nombre, int precio, String marca) {
         super(codigo, nombre, Precios.FANTA.getPrecio(), marca);
-        this.marca = marca;
     }
 
     /**
@@ -30,6 +23,6 @@ public class Fanta extends Bebida {
      */
     @Override
     public String consumirP() {
-        return "Bebiendo " + this.marca;
+        return "Bebiendo " + getMarca();
     }
 }

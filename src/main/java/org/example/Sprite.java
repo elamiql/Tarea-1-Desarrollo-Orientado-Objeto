@@ -6,10 +6,6 @@ package org.example;
  */
 public class Sprite extends Bebida {
 
-    /**
-     * Marca de la bebida.
-     */
-    private String marca;
 
     /**
      * Constructor de la clase Sprite.
@@ -21,7 +17,6 @@ public class Sprite extends Bebida {
      */
     public Sprite(int codigo, String nombre, int precio, String marca) {
         super(codigo, nombre, precio, marca);
-        this.marca = marca;
     }
 
     /**
@@ -31,6 +26,6 @@ public class Sprite extends Bebida {
      */
     @Override
     public String consumirP() {
-        return "Bebiendo " + this.marca;
+        return "Bebiendo " + getMarca();
     }
 }
