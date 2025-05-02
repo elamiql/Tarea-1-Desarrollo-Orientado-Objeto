@@ -15,7 +15,6 @@ public class Fanta extends Bebida {
     public Fanta(int codigo, String nombre, int precio, String marca) {
         super(codigo, nombre, Precios.FANTA.getPrecio(), marca);
     }
-
     /**
      * Describe el consumo de la bebida Fanta.
      *
