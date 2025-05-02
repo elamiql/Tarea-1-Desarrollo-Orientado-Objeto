@@ -63,7 +63,7 @@ public class Expendedor {
             productos.get(COCA - 1).addItem(new CocaCola(i, "CocaCola", Precios.COCA_COLA.getPrecio(), "CocaCola"));
             productos.get(SPRITE - 1).addItem(new Sprite(i, "Sprite", Precios.SPRITE.getPrecio(), "Sprite"));
             productos.get(FANTA - 1).addItem(new Fanta(i, "Fanta", Precios.FANTA.getPrecio(), "Fanta"));
-            productos.get(SUPER8 - 1).addItem(new Super8(i, "Super8", Precios.SUPER8.getPrecio(), "Chocolate"));
+            productos.get(SUPER8 - 1).addItem(new Super8(i, "Super8", Precios.SUPER8.getPrecio(), "Super8"));
             productos.get(SNICKERS - 1).addItem(new Snickers(i, "Snickers", Precios.SNICKERS.getPrecio(), "Snicker"));
         }
     }
