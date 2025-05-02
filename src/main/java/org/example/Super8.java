@@ -7,21 +7,15 @@ package org.example;
 public class Super8 extends Dulce {
 
     /**
-     * Sabor del dulce Super8.
-     */
-    private String sabor;
-
-    /**
      * Constructor de la clase Super8.
      *
-     * @param codigo, CÃ³digo del producto.
-     * @param nombre, Nombre del producto.
-     * @param precio, Precio del producto.
-     * @param sabor,  Sabor del dulce.
+     * @param codigo Código del producto.
+     * @param nombre Nombre del producto.
+     * @param precio Precio del producto.
+     * @param sabor  Sabor del dulce.
      */
     public Super8(int codigo, String nombre, int precio, String sabor) {
         super(codigo, nombre, Precios.SUPER8.getPrecio(), sabor);
-        this.sabor = sabor;
     }
 
     /**
@@ -31,6 +25,6 @@ public class Super8 extends Dulce {
      */
     @Override
     public String consumirP() {
-        return "Comiendo " + this.sabor;
+        return "Comiendo " + getSabor();
     }
 }

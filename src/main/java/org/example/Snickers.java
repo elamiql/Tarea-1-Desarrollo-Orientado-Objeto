@@ -1,27 +1,21 @@
 package org.example;
 
 /**
- * Clase que representa el dulce Snicker.
+ * Clase que representa el dulce Snickers.
  * Hereda de la clase abstracta Dulce.
  */
 public class Snickers extends Dulce {
 
     /**
-     * Sabor del dulce Snickers (redeclara el campo heredado).
-     */
-    private String sabor;
-
-    /**
      * Constructor de la clase Snickers.
      *
-     * @param codigo, Codigo del producto.
-     * @param nombre, Nombre del producto.
-     * @param precio, Precio del producto.
-     * @param sabor,  Sabor del dulce.
+     * @param codigo Código del producto.
+     * @param nombre Nombre del producto.
+     * @param precio Precio del producto.
+     * @param sabor  Sabor del dulce.
      */
     public Snickers(int codigo, String nombre, int precio, String sabor) {
         super(codigo, nombre, Precios.SNICKERS.getPrecio(), sabor);
-        this.sabor = sabor;
     }
 
     /**
@@ -31,6 +25,6 @@ public class Snickers extends Dulce {
      */
     @Override
     public String consumirP() {
-        return "Consumiendo " + this.sabor;
+        return "Consumiendo " + getSabor();
     }
 }
