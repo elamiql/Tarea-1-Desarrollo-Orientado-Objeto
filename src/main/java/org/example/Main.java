@@ -9,6 +9,19 @@ public class Main {
         Moneda moneda1000 = new Moneda1000(); // Suficiente
         Moneda moneda500 = new Moneda500();   // Insuficiente para CocaCola
         Moneda moneda100 = new Moneda100();   // insuficiente
+        System.out.println("\n=== PRUEBA: COMPARACIÓN DE MONEDAS ===");
+
+        System.out.println("Comparando moneda1000 con moneda500: " + moneda1000.compareTo(moneda500));
+        
+
+        System.out.println("Comparando moneda500 con moneda1000: " + moneda500.compareTo(moneda1000));
+
+
+        System.out.println("Comparando moneda500 con otra moneda500: " + moneda500.compareTo(new Moneda500()));
+
+
+        System.out.println("Comparando moneda100 con moneda1000: " + moneda100.compareTo(moneda1000));
+
 
         // Productos válidos
         int[] productos = {
@@ -23,7 +36,7 @@ public class Main {
         for (int i = 0; i < productos.length; i++) {
             try {
                 Comprador comprador = new Comprador(moneda1000, productos[i], expendedor);
-                System.out.println("Comprador compró: " + comprador.queBebiste());
+                System.out.println("Comprador: " + comprador.queBebiste());
                 System.out.println("Vuelto: " + comprador.cuantoVuelto() + "\n");
             } catch (Exception e) {
                 System.out.println("Error inesperado: " + e.getMessage());
