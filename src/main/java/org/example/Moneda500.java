@@ -1,5 +1,4 @@
 package org.example;
-
 /**
  * Clase moneda de 500.
  * Extiende la clase abstracta Moneda.

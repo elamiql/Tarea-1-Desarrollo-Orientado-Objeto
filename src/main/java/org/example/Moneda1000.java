@@ -1,5 +1,4 @@
 package org.example;
-
 /**
  * Clase moneda1000.
  * Extiende la clase abstracta Moneda.
@@ -23,5 +22,3 @@ class Moneda1000 extends Moneda {
         return 1000;
     }
 }
-
-

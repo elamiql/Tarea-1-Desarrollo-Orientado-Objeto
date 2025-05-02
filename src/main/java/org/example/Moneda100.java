@@ -19,7 +19,6 @@ class Moneda100 extends Moneda {
      *
      * @return el valor de la moneda (100)
      */
-
     public int getValor() {
         return 100;
     }

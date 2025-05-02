@@ -26,7 +26,7 @@ class Deposito<T> {
 
     /**
      * Obtiene un elemento del depósito.
-     * @return El primer elemento del depósito o null si está vacío.
+     * @return El primer elemento del deposito o null si está vacío.
      */
     public T getItem() {
         if (items.isEmpty()) {

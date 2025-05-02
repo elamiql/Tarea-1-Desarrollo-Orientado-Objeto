@@ -44,4 +44,3 @@ abstract class Moneda implements Comparable<Moneda> {
         return Integer.compare(this.getValor(), otraMoneda.getValor());
     }
 }
-

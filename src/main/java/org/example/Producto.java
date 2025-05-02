@@ -1,39 +1,97 @@
 package org.example;
 
-public abstract class Producto{
+/**
+ * Clase abstracta producto.
+ * Contiene informacion como codigo, nombre y precio.
+ * Esta clase debe sera extendida.
+ */
+public abstract class Producto {
+    /**
+     * Codigo del producto.
+     */
     private int codigo;
+
+    /**
+     * Nombre del producto.
+     */
     private String nombre;
+
+    /**
+     * Precio del producto.
+     */
     private int precio;
 
-    public Producto(int codigo, String nombre, int precio){
+    /**
+     * Constructor de la clase Producto.
+     *
+     * @param codigo, Codigo del producto.
+     * @param nombre, Nombre del producto.
+     * @param precio, Precio del producto.
+     */
+    public Producto(int codigo, String nombre, int precio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    public int getCodigo(){
+    /**
+     * Obtiene el codigo del producto.
+     *
+     * @return El codigo del producto.
+     */
+    public int getCodigo() {
         return codigo;
     }
 
-    public String getNombre(){
+    /**
+     * Obtiene el nombre del producto.
+     *
+     * @return El nombre del producto.
+     */
+    public String getNombre() {
         return nombre;
     }
 
-    public int getPrecio(){
+    /**
+     * Obtiene el precio del producto.
+     *
+     * @return El precio del producto.
+     */
+    public int getPrecio() {
         return precio;
     }
 
-    public void setCodigo(int codigo){
+    /**
+     * Setea el codigo del producto.
+     *
+     * @param codigo Nuevo codigo del producto.
+     */
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    public void setNombre(String nombre){
+    /**
+     * Setea el nombre del producto.
+     *
+     * @param nombre Nuevo nombre del producto.
+     */
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setPrecio(int precio){
+    /**
+     * Setea el precio del producto.
+     *
+     * @param precio Nuevo precio del producto.
+     */
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
+    /**
+     * Método abstracto del consumo del producto.
+     *
+     * @return Una descripcion del sabor.
+     */
     public abstract String consumirP();
 }
