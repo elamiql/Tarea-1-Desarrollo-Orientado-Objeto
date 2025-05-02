@@ -1,8 +1,8 @@
 # Tarea 1: Desarrollo Orientado a Objetos
 ## Alumnos:
-- **Agustín Salgado**
-- **Ignacio Silva**
-- **Juan Pablo Nuñez**
+- **Agustín Salgado Espinoza**
+- **Ignacio Silva Vera**
+- **Juan Pablo Nuñez Toloza**
 
 Nota: Ignacio Silva consto con problemas para pushear en repositorio 
 en el ultimo tramo pudo solventarlo, sin embargo no pudo pushear partes

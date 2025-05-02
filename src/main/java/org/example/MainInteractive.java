@@ -25,11 +25,14 @@ public class MainInteractive {
         Moneda m = null;
         Comprador comprador;
         String[] nombresProductos = {"CocaCola", "Sprite", "Fanta", "Super8", "Snickers"};
+
         while(salir){
-            System.out.println("ingrese una moneda");
+            System.out.println("Ingrese una moneda");
             System.out.println("1. 100$");
             System.out.println("2. 500$");
             System.out.println("3. 1000$");
+            System.out.println();
+
             int eleccion = scanner.nextInt();
             switch (eleccion) {
                 case 1:
@@ -42,20 +45,32 @@ public class MainInteractive {
                     m = new Moneda1000();
                     break;
                 default:
-                    System.out.println("eleccion no valida");
+                    System.out.println("Eleccion no valida");
 
             }
-            System.out.println("elija un producto");
-            System.out.println("0. Coca");
-            System.out.println("1. Sprite");
-            System.out.println("2. Fanta");
-            System.out.println("3. super8");
-            System.out.println("4. snickers");
+            System.out.println("Elija un producto:");
+            System.out.println("1. Coca");
+            System.out.println("2. Sprite");
+            System.out.println("3. Fanta");
+            System.out.println("4. Super8");
+            System.out.println("5. Snickers");
+
             eleccion = scanner.nextInt();
             switch (eleccion){
                 case 1:
                     try {
                         comprador = new Comprador(m, 1, expendedor);
+                        System.out.println("Comprador compró: " + nombresProductos[0]);
+                        System.out.println(comprador.queBebiste());
+                        System.out.println("Vuelto del comprador: " + comprador.cuantoVuelto() + "\n");
+                    } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException e) {
+                        System.out.println("Error al comprar " + nombresProductos[0] + ": " + e.getMessage());
+                    }
+                    break;
+
+                case 2:
+                    try {
+                        comprador = new Comprador(m, 2, expendedor);
                         System.out.println("Comprador compró: " + nombresProductos[1]);
                         System.out.println(comprador.queBebiste());
                         System.out.println("Vuelto del comprador: " + comprador.cuantoVuelto() + "\n");
@@ -63,10 +78,9 @@ public class MainInteractive {
                         System.out.println("Error al comprar " + nombresProductos[1] + ": " + e.getMessage());
                     }
                     break;
-
-                case 2:
+                case 3:
                     try {
-                        comprador = new Comprador(m, 2, expendedor);
+                        comprador = new Comprador(m, 3, expendedor);
                         System.out.println("Comprador compró: " + nombresProductos[2]);
                         System.out.println(comprador.queBebiste());
                         System.out.println("Vuelto del comprador: " + comprador.cuantoVuelto() + "\n");
@@ -74,9 +88,9 @@ public class MainInteractive {
                         System.out.println("Error al comprar " + nombresProductos[2] + ": " + e.getMessage());
                     }
                     break;
-                case 3:
+                case 4:
                     try {
-                        comprador = new Comprador(m, 3, expendedor);
+                        comprador = new Comprador(m, 4, expendedor);
                         System.out.println("Comprador compró: " + nombresProductos[3]);
                         System.out.println(comprador.queBebiste());
                         System.out.println("Vuelto del comprador: " + comprador.cuantoVuelto() + "\n");
@@ -84,9 +98,9 @@ public class MainInteractive {
                         System.out.println("Error al comprar " + nombresProductos[3] + ": " + e.getMessage());
                     }
                     break;
-                case 4:
+                case 5:
                     try {
-                        comprador = new Comprador(m, 4, expendedor);
+                        comprador = new Comprador(m, 5, expendedor);
                         System.out.println("Comprador compró: " + nombresProductos[4]);
                         System.out.println(comprador.queBebiste());
                         System.out.println("Vuelto del comprador: " + comprador.cuantoVuelto() + "\n");
@@ -94,19 +108,8 @@ public class MainInteractive {
                         System.out.println("Error al comprar " + nombresProductos[4] + ": " + e.getMessage());
                     }
                     break;
-                case 5:
-                    try {
-
-                        comprador = new Comprador(m, 5, expendedor);
-                        System.out.println("Comprador compró: " + nombresProductos[5]);
-                        System.out.println(comprador.queBebiste());
-                        System.out.println("Vuelto del comprador: " + comprador.cuantoVuelto() + "\n");
-                    } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException e) {
-                        System.out.println("Error al comprar " + nombresProductos[5] + ": " + e.getMessage());
-                    }
-                    break;
                 default:
-                    System.out.println("error en la eleccion");
+                    System.out.println("Error en la eleccion");
             }
             
             System.out.println("¿Quieres seguir comprando?");
